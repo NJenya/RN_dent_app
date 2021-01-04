@@ -1,6 +1,7 @@
 import React from 'react'
 import { SectionList, Text } from 'react-native'
 import styled from 'styled-components/native'
+import { Ionicons } from '@expo/vector-icons'
 
 import { Group } from './src/components/Group'
 import SectioTitle from './src/components/SectionTitle'
@@ -115,9 +116,28 @@ export default function App() {
 					<SectioTitle>{title}</SectioTitle>
 				)}
 			/>
+			<PlusButton>
+				<Ionicons name="add" size={36} color="#fff" />
+			</PlusButton>
 		</Container>
 	)
 }
+
+const PlusButton = styled.TouchableOpacity`
+	align-items: center;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+	border-radius: 50px;
+	background-color: #2a86ff;
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+	shadow-color: #2a86ff;
+	shadow-opacity: 0.7;
+	shadow-radius: 3.5px;
+	elevation: 5;
+`
 
 const Container = styled.View`
 	flex: 1;
