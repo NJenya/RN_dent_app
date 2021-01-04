@@ -1,26 +1,21 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import styled from 'styled-components/native'
 
-export const Group = ({ title, items }) => {
+export const Group = ({ user, active, time, diagnosis }) => {
 	return (
-		<GroupBlock>
-			<GroupTitle>{title}</GroupTitle>
-			{items.map((item, index) => (
-				<GroupItem key={index}>
-					<Avatar
-						source={{
-							uri: item.user.avatar,
-						}}
-					/>
-					<View style={{ flex: 1 }}>
-						<FullName>{item.user.fullName}</FullName>
-						<GrayText>{item.diagnosis}</GrayText>
-					</View>
-					<GroupDate active={item.active}>{item.time}</GroupDate>
-				</GroupItem>
-			))}
-		</GroupBlock>
+		<GroupItem>
+			<Avatar
+				source={{
+					uri: user.avatar,
+				}}
+			/>
+			<View style={{ flex: 1 }}>
+				<FullName>{user.fullName}</FullName>
+				<GrayText>{diagnosis}</GrayText>
+			</View>
+			<GroupDate active={active}>{time}</GroupDate>
+		</GroupItem>
 	)
 }
 
@@ -59,20 +54,9 @@ const Avatar = styled.Image`
 `
 
 const GroupItem = styled.TouchableOpacity`
-	padding: 20px 0;
+	padding: 20px;
 	flex-direction: row;
 	align-items: center;
 	border-bottom-color: #f3f3f3;
 	border-bottom-width: 1px;
-`
-
-const GroupTitle = styled.Text`
-	font-weight: bold;
-	font-size: 22px;
-	color: #000;
-`
-
-const GroupBlock = styled.View`
-	padding: 0 20px;
-	margin-bottom: 25px;
 `
